@@ -1,5 +1,6 @@
 const inquirer = require("inquirer")
 
+const inputArray = []
 const teamArray = []
 
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
@@ -22,12 +23,12 @@ inquirer.prompt([
     {
         type: "number",
         message: "What is the team manager's office number?",
-        name: "name",
+        name: "office",
     },
 ])
 .then((answers) => {
     answers.role = "manager"
-    teamArray.push(answers)
+    inputArray.push(answers)
     addAnother()
 })
 .catch(err => console.log(err))
@@ -68,7 +69,7 @@ function addAnother() {
                 },
             ])
             .then((answers) => {
-                teamArray.push(answers)
+                inputArray.push(answers)
             })
             .then(() => {
                 addAnother()
@@ -99,14 +100,22 @@ function addAnother() {
                 },
             ])
             .then((answers) => {
-                teamArray.push(answers)
+                inputArray.push(answers)
             })
             .then(() => {
                 addAnother()
             })
             .catch(err => console.log(err))
         } else if (answer.team === "Finished building team") {
-            console.log("The teamArray needs to be used to generate the HTML")
+            inputArray.forEach((teamMember) => {
+                if (teamMember.office) {
+                    // New Manager
+                } else if (teamMember.github) {
+                    // New Engineer
+                } else {
+                    // New Intern
+                }
+            })
         }
     })
 }
