@@ -1,4 +1,8 @@
 const inquirer = require("inquirer")
+const Engineer = require("./lib/Engineer")
+const Intern = require("./lib/Intern")
+const Manager = require("./lib/Manager")
+
 
 const inputArray = []
 const teamArray = []
@@ -110,10 +114,16 @@ function addAnother() {
             inputArray.forEach((teamMember) => {
                 if (teamMember.office) {
                     // New Manager
+                    const man = new Manager(teamMember.name, teamMember.id, teamMember.email, teamMember.office)
+                    teamArray.push(man)
                 } else if (teamMember.github) {
                     // New Engineer
+                    const eng = new Engineer(teamMember.name, teamMember.id, teamMember.email, teamMember.github)
+                    teamArray.push(eng)
                 } else {
                     // New Intern
+                    const int = new Intern(teamMember.name, teamMember.id, teamMember.email, teamMember.school)
+                    teamArray.push(int)
                 }
             })
         }
