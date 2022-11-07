@@ -115,14 +115,17 @@ function addAnother() {
                 if (teamMember.office) {
                     // New Manager
                     const man = new Manager(teamMember.name, teamMember.id, teamMember.email, teamMember.office)
+                    // Instead of pushing to team array can I just generate the html card now?
                     teamArray.push(man)
                 } else if (teamMember.github) {
                     // New Engineer
                     const eng = new Engineer(teamMember.name, teamMember.id, teamMember.email, teamMember.github)
+                    // Instead of pushing to team array can I just generate the html card now?
                     teamArray.push(eng)
                 } else {
                     // New Intern
                     const int = new Intern(teamMember.name, teamMember.id, teamMember.email, teamMember.school)
+                    // Instead of pushing to team array can I just generate the html card now?
                     teamArray.push(int)
                 }
             })
