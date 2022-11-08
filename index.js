@@ -130,6 +130,8 @@ function addAnother() {
                     teamArray.push(int)
                 }
             })
+            const profile = generateProfile(teamArray)
+            fs.writeFileSync("./dist/index.html", profile )
         }
     })
 }
