@@ -2,6 +2,7 @@ const generateProfile = (teamArray) => {
     const cards = []
 
     engCard = (eng) => {
+        console.log(eng)
         return `
         <div class="col">
           <div class="card shadow">
@@ -19,6 +20,7 @@ const generateProfile = (teamArray) => {
         `
     }
     intCard = (int) => {
+        console.log(int)
         return `
         <div class="col">
           <div class="card shadow">
@@ -36,6 +38,7 @@ const generateProfile = (teamArray) => {
         `
     }
     manCard = (man) => {
+        console.log(man)
         return `
         <div class="col">
           <div class="card shadow">
@@ -45,7 +48,7 @@ const generateProfile = (teamArray) => {
               <ul class="list-group">
                 <li class="list-group-item">ID: ${man.id}</li>
                 <a class="list-group-item" href="mailto:${man.email}">${man.email}</a>
-                <li class="list-group-item">${man.office}</li>
+                <li class="list-group-item">Office number: ${man.officeNumber}</li>
               </ul>
             </div>
           </div>
@@ -79,7 +82,7 @@ module.exports = (teamArray) => {
 <body>
     <header class="bg-danger text-white text-center p-5 fs-1 mb-5" >My Team</header>
     <div class="row row-cols-1 row-cols-md-3 g-4 p-3">
-        ${generateHTML(teamArray)}
+        ${generateProfile(teamArray)}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
