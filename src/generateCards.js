@@ -1,6 +1,6 @@
 const generateProfile = (teamArray) => {
     const cards = []
-
+    // Creates engineer card
     engCard = (eng) => {
         console.log(eng)
         return `
@@ -19,6 +19,7 @@ const generateProfile = (teamArray) => {
         </div>
         `
     }
+    // Creates intern card
     intCard = (int) => {
         console.log(int)
         return `
@@ -37,6 +38,7 @@ const generateProfile = (teamArray) => {
         </div>
         `
     }
+    // Creates manager card
     manCard = (man) => {
         console.log(man)
         return `
@@ -55,7 +57,7 @@ const generateProfile = (teamArray) => {
         </div>
         `
     }
-
+    // Loops through teamArray and generates a card based on role for each teamate
     teamArray.forEach(function(teamate) {
         if (teamate.getRole() === "Engineer") {
             cards.push(engCard(teamate))
@@ -67,7 +69,7 @@ const generateProfile = (teamArray) => {
     })
     return cards.join("")
 }
-
+// Generates actual HTML page with cards
 module.exports = (teamArray) => {
     return `
     <!DOCTYPE html>
