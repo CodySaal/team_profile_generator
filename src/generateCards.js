@@ -11,8 +11,8 @@ const generateProfile = (teamArray) => {
               <h5 class="card-title">${eng.role}</h5>
               <ul class="list-group">
                 <li class="list-group-item">ID: ${eng.id}</li>
-                <a class="list-group-item" href="mailto:${eng.email}">${eng.email}</a>
-                <a class="list-group-item" href="https://github.com/${eng.github}" target="_blank">GitHub: ${eng.github}</a>
+                <li class="list-group-item">Email: <a href="mailto:${eng.email}"> ${eng.email}</a></li>
+                <li class="list-group-item">GitHub: <a href="https://github.com/${eng.github}" target="_blank">${eng.github}</a></li>
               </ul>
             </div>
           </div>
@@ -29,8 +29,8 @@ const generateProfile = (teamArray) => {
               <h5 class="card-title">${int.role}</h5>
               <ul class="list-group">
                 <li class="list-group-item">ID: ${int.id}</li>
-                <a class="list-group-item" href="mailto:${int.email}">${int.email}</a>
-                <li class="list-group-item">${int.school}</li>
+                <li class="list-group-item">Email: <a href="mailto:${int.email}"> ${int.email}</a></li>
+                <li class="list-group-item">School: ${int.school}</li>
               </ul>
             </div>
           </div>
@@ -47,7 +47,7 @@ const generateProfile = (teamArray) => {
               <h5 class="card-title">${man.role}</h5>
               <ul class="list-group">
                 <li class="list-group-item">ID: ${man.id}</li>
-                <a class="list-group-item" href="mailto:${man.email}">${man.email}</a>
+                <li class="list-group-item">Email: <a href="mailto:${man.email}"> ${man.email}</a></li>
                 <li class="list-group-item">Office number: ${man.officeNumber}</li>
               </ul>
             </div>
