@@ -4,11 +4,8 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 const Manager = require("./lib/Manager")
 const generateProfile = require("./src/generateCards")
-
-
 const inputArray = []
 const teamArray = []
-
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 inquirer.prompt([
     {
@@ -38,7 +35,6 @@ inquirer.prompt([
     addAnother()
 })
 .catch(err => console.log(err))
-
 // THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
 function addAnother() {
     inquirer.prompt([
@@ -50,7 +46,7 @@ function addAnother() {
         }
     ])
     .then((answer) => {
-// THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
+        // THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
         if (answer.team === "Engineer") {
             inquirer.prompt([
                 {
@@ -82,7 +78,7 @@ function addAnother() {
             })
             .catch(err => console.log(err))
         } else if (answer.team === "Intern") {
-// THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
+            // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
             inquirer.prompt([
                 {
                     type: "input",
@@ -117,22 +113,19 @@ function addAnother() {
                 if (teamMember.office) {
                     // New Manager
                     const man = new Manager(teamMember.name, teamMember.id, teamMember.email, teamMember.office)
-                    // Instead of pushing to team array can I just generate the html card now?
                     teamArray.push(man)
                 } else if (teamMember.github) {
                     // New Engineer
                     const eng = new Engineer(teamMember.name, teamMember.id, teamMember.email, teamMember.github)
-                    // Instead of pushing to team array can I just generate the html card now?
                     teamArray.push(eng)
                 } else {
                     // New Intern
                     const int = new Intern(teamMember.name, teamMember.id, teamMember.email, teamMember.school)
-                    // Instead of pushing to team array can I just generate the html card now?
                     teamArray.push(int)
                 }
             })
             const profile = generateProfile(teamArray)
-            fs.writeFileSync("./dist/index.html", profile )
+            fs.writeFileSync("./dist/profile.html", profile )
         }
     })
 }
